@@ -24,13 +24,13 @@ function getRandomBlock() {
   const random = Math.random();
 
   if (random < 0.33) {
-    return "RETA";
+    return ATRIBUTE_ENUM.RETA.block;
   }
   if (random < 0.66) {
-    return "CURVA";
+    return ATRIBUTE_ENUM.CURVA.block;
   }
 
-  return "CONFRONTO";
+  return ATRIBUTE_ENUM.CONFRONTO.block;
 }
 
 function logRollResult(player1, player2, gameControl, atribute) {
@@ -99,7 +99,7 @@ function playRaceEngine(player1, player2) {
   for (let round = 1; round <= 5; round++) {
     console.log(`🏁 Rodada ${round}`);
     //sortear bloco
-    let block = getRandomBlock();
+    const block = getRandomBlock();
     console.log(`Bloco: ${block}`);
 
     //DESTE PONTO PARA BAIXO É LIGICA DE RESULTADOS
@@ -109,15 +109,15 @@ function playRaceEngine(player1, player2) {
       diceResult2: rollDice()
     }
 
-    if (block === "RETA") {
+    if (block === ATRIBUTE_ENUM.RETA.block) {
       blockReta(player1, player2, gameControl)
     }
 
-    if (block === "CURVA") {
+    if (block === ATRIBUTE_ENUM.CURVA.block) {
       blockCurva(player1, player2, gameControl)
     }
 
-    if (block === "CONFRONTO") {
+    if (block === ATRIBUTE_ENUM.CONFRONTO.block) {
       blockConfronto(player1, player2, gameControl)
     }
 
